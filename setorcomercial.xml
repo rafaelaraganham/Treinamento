@@ -1,0 +1,20 @@
+<Schema name="setorcomercial">
+  <Cube name="Pedidos" visible="true" cache="true" enabled="true">
+    <Table name="fato_pedidos" alias="">
+    </Table>
+    <Dimension type="StandardDimension" visible="true" foreignKey="fk_cliente" name="Clientes">
+      <Hierarchy name="Clientes" visible="true" hasAll="true" allMemberName="Todos os Clientes" primaryKey="fk_cliente">
+        <Table name="dim_cliente" alias="">
+        </Table>
+        <Level name="Sexo" visible="true" column="sexo" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Estado Civil" visible="true" column="estado_civil" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+        <Level name="Cliente" visible="true" column="nome" type="String" uniqueMembers="false" levelType="Regular" hideMemberIf="Never">
+        </Level>
+      </Hierarchy>
+    </Dimension>
+    <Measure name="Quantidade" column="qtd_venda" datatype="Integer" aggregator="sum" visible="true">
+    </Measure>
+  </Cube>
+</Schema>
